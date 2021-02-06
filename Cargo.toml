@@ -1,0 +1,16 @@
+[package]
+name = "pakr"
+version = "0.1.0"
+authors = ["Marcin Puc <marcin.e.puc@gmail.com>"]
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+
+bstr = "0.2.14"
+dirs = "3.0.1"
+lazy_static = "1.4.0"
+serde = { version = "1.0.123", features = ["derive"] }
+structopt = "0.3.21"
+toml = "0.5.8"
