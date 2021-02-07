@@ -1,5 +1,4 @@
 use std::os::unix::process::ExitStatusExt;
-use std::process::ExitStatus;
 
 use structopt::StructOpt;
 
@@ -20,11 +19,7 @@ fn run_app() -> std::io::Result<i32> {
             Orphans::List => pac.list_orphans(),
             Orphans::Remove => pac.remove_orphans(),
         },
-        Command::Completion { shell } => {
-            Cli::clap().gen_completions_to("pakr", shell, &mut std::io::stdout());
-
-            Ok(ExitStatus::from_raw(0))
-        }
+        Command::Completion { shell } => pakr::cli::generate_completion(shell),
     };
 
     status.map(|st| st.code().unwrap_or_else(|| st.signal().unwrap()))

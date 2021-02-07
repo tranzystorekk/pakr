@@ -1,5 +1,16 @@
+use std::os::unix::process::ExitStatusExt;
+use std::process::ExitStatus;
+
 use structopt::clap::Shell;
 use structopt::StructOpt;
+
+const PKG_NAME: &str = env!("CARGO_PKG_NAME");
+
+pub fn generate_completion(shell: Shell) -> std::io::Result<ExitStatus> {
+    Cli::clap().gen_completions_to(PKG_NAME, shell, &mut std::io::stdout());
+
+    Ok(ExitStatus::from_raw(0))
+}
 
 #[derive(Copy, Clone, Debug, StructOpt)]
 pub enum Orphans {
