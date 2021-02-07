@@ -5,7 +5,7 @@
 Paker (typed `pakr` for convenience) is a Rust wrapper for any utilities
 compatible with `pacman`'s CLI API (flags like `-Syu` etc.).
 
-In short, it gives you a nicer more descriptive interface for common
+In short, it gives you a nicer, more descriptive interface for common
 operations on Arch Linux packages, including:
 
 - Installing packages
