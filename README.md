@@ -11,6 +11,7 @@ operations on Arch Linux packages, including:
 - Installing packages
 - Removing packages
 - Displaying detailed package info
+- Performing a system upgrade
 - Listing and automatically removing orphaned packages
 - Cleaning pacman's package cache
 
