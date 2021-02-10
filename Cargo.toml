@@ -2,6 +2,9 @@
 name = "pakr"
 version = "0.1.0"
 authors = ["Marcin Puc <marcin.e.puc@gmail.com>"]
+description = "Manage Arch Linux packages via any pacman-compatible wrapper"
+license = "MIT"
+repository = "https://github.com/tranzystorek-io/pakr"
 edition = "2018"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
