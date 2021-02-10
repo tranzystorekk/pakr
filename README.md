@@ -15,6 +15,16 @@ operations on Arch Linux packages, including:
 - Listing and automatically removing orphaned packages
 - Cleaning pacman's package cache
 
+## Configuration
+
+All configuration resides under `$XDG_CONFIG_HOME/pakr.toml` (usually `$HOME/.config/pakr.toml`):
+
+```toml
+[wrapper]
+command = "pacman"      # name of the wrapper command
+requires_root = true    # whether this wrapper needs root permissions (granted via sudo)
+```
+
 ## Examples
 
 Installing `kakoune` with the `trizen` wrapper:
