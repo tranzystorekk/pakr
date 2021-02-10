@@ -2,6 +2,20 @@
 All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
 
 - - -
+## 0.2.0 - 2021-02-10
+
+
+### Miscellaneous Chores
+
+147c65 - include bumped Cargo.lock file - Marcin Puc
+
+
+### Features
+
+51bea6 - automatically check that wrapper command is available - Marcin Puc
+
+
+- - -
 ## 0.1.0 - 2021-02-10
 
 
