@@ -2,6 +2,8 @@ changelog_path = "CHANGELOG.md"
 pre_bump_hooks = [
     "cargo build --release",
     "cargo bump %version",
+    "cargo check --release",
+    "git add Cargo.lock",
 ]
 post_bump_hooks = [
     "git push",
