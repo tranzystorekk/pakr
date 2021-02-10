@@ -15,6 +15,19 @@ operations on Arch Linux packages, including:
 - Listing and automatically removing orphaned packages
 - Cleaning pacman's package cache
 
+## Installation
+
+### Via Cargo
+
+Paker is hosted on a custom Cloudsmith repository, so first set up a
+[Cargo registry](https://cloudsmith.io/~tranzystorek-crates/repos/default/setup/#formats-cargo).
+
+Then, install `pakr` using the selected registry name:
+
+```sh
+cargo install pakr --registry tranzystorek-crates-default
+```
+
 ## Configuration
 
 All configuration resides under `$XDG_CONFIG_HOME/pakr.toml` (usually `$HOME/.config/pakr.toml`):
