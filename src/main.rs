@@ -9,6 +9,16 @@ fn run_app() -> std::io::Result<i32> {
     let cli = Cli::from_args();
     let pac = PacmanWrapper::from_config();
 
+    let command_status = pac.verify_command()?;
+
+    if !command_status.success() {
+        eprintln!("Failed to verify wrapper command");
+
+        return Ok(command_status
+            .code()
+            .unwrap_or_else(|| command_status.signal().unwrap()));
+    }
+
     let status = match cli.sub {
         Command::Install { packages, as_deps } => pac.install(&packages, as_deps),
         Command::Remove { packages } => pac.remove(&packages),

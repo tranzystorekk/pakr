@@ -29,6 +29,7 @@ enum CommandMaker {
     Regular(String),
     Root(String),
 }
+
 pub struct PacmanWrapper {
     cmd_maker: CommandMaker,
 }
@@ -52,6 +53,22 @@ impl CommandMaker {
                 rooted
             }
         }
+    }
+
+    pub fn check_command(&self) -> IoResult<ExitStatus> {
+        let mut cmd = Command::new("sh");
+
+        cmd.arg("-c");
+
+        match self {
+            Self::Root(command) | Self::Regular(command) => {
+                let verify_command = format!("command -v {}", command);
+
+                cmd.arg(verify_command);
+            }
+        };
+
+        cmd.stdout(std::process::Stdio::null()).status()
     }
 }
 
@@ -115,6 +132,10 @@ impl PacmanWrapper {
         }
 
         self.delete_orphans(&packages)
+    }
+
+    pub fn verify_command(&self) -> IoResult<ExitStatus> {
+        self.cmd_maker.check_command()
     }
 
     fn get_orphans(&self) -> IoResult<Vec<OsString>> {
