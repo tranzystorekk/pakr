@@ -142,7 +142,7 @@ impl PacmanWrapper {
         let mut cmd = self.cmd_maker.construct();
 
         let output = cmd.arg(LIST_ORPHANS_SILENT_FLAG).output()?;
-        let packages: Vec<_> = output
+        let packages = output
             .stdout
             .fields()
             .map(Vec::from)
