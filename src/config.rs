@@ -6,13 +6,8 @@ use serde::Deserialize;
 const CONFIG_FILE_NAME: &str = "pakr.toml";
 
 lazy_static! {
-    static ref CONFIG_PATH: Option<PathBuf> = {
-        dirs::config_dir().map(|mut path| {
-            path.push(CONFIG_FILE_NAME);
-
-            path
-        })
-    };
+    static ref CONFIG_PATH: Option<PathBuf> =
+        dirs::config_dir().map(|path| path.join(CONFIG_FILE_NAME));
 }
 
 #[derive(Debug, Deserialize)]
