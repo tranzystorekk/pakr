@@ -2,6 +2,34 @@
 All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
 
 - - -
+## 0.2.1 - 2021-02-13
+
+
+### Miscellaneous Chores
+
+7d9c45 - add myself as an author in cocogitto config - [tranzystorek-io](https://github.com/tranzystorek-io)
+
+
+### Bug Fixes
+
+9ce43d - fix completion error caused by a colon - [tranzystorek-io](https://github.com/tranzystorek-io)
+
+
+### Documentation
+
+5fee76 - add cargo installation instructions - [tranzystorek-io](https://github.com/tranzystorek-io)
+
+5c6613 - add configuration documentation - [tranzystorek-io](https://github.com/tranzystorek-io)
+
+
+### Refactoring
+
+96aca7 - simplify config path generation - [tranzystorek-io](https://github.com/tranzystorek-io)
+
+d9c0cc - remove redundant type annotation - [tranzystorek-io](https://github.com/tranzystorek-io)
+
+
+- - -
 ## 0.2.0 - 2021-02-10
 
 
