@@ -75,3 +75,17 @@ Optional dependencies for kakoune
 :: Running post-transaction hooks...
 (1/1) Arming ConditionNeedsUpdate...
 ```
+
+## FAQ
+
+### Can/will `pakr` replace `insert package manager name here`?
+
+No, it's a non-goal.
+
+`pakr` was made to target a narrow set of tasks that I do often.
+I still use the underlying package manager to do specific tasks
+like listing manually installed packages or installing packages from manual sources.
+
+Some common things that pacman doesn't do are included
+in the [pacman-contrib](https://git.archlinux.org/pacman-contrib.git/about/) package,
+you might want to check it out.
