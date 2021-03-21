@@ -15,6 +15,19 @@ operations on Arch Linux packages, including:
 - Listing and automatically removing orphaned packages
 - Cleaning pacman's package cache
 
+Currently used flags:
+
+| Subcommand       | Flags                        |
+| ---------------- | ---------------------------- |
+| `install`        | `-S`                         |
+| `install -d`     | `-S --asdeps`                |
+| `remove`         | `-Rs`                        |
+| `info`           | `-Qi`                        |
+| `upgrade`        | `-Syu`                       |
+| `clean`          | `-Sc`                        |
+| `orphans list`   | `-Qtd`                       |
+| `orphans remove` | `-Qtdq` :arrow_right: `-Rns` |
+
 ## Installation
 
 ### Via Cargo
