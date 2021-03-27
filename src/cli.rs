@@ -52,6 +52,9 @@ pub enum Command {
     Upgrade,
 
     /// Clean package cache
+    ///
+    /// This removes all packages that are not installed from cache.
+    /// If you want to keep the most recent versions, consider using other tools.
     Clean,
 
     /// Manage orphaned packages
