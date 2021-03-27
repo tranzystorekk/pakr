@@ -2,6 +2,26 @@
 All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
 
 - - -
+## 0.2.2 - 2021-03-27
+
+
+### Miscellaneous Chores
+
+f063f2 - adjust prehooks for cocogitto 2.0 - [tranzystorek-io](https://github.com/tranzystorek-io)
+
+ff0008 - skip linting CHANGELOG.md - [tranzystorek-io](https://github.com/tranzystorek-io)
+
+
+### Documentation
+
+d70df2 - add more info to the clean subcommand help message - [tranzystorek-io](https://github.com/tranzystorek-io)
+
+eb278e - add info about subcommand flags to README - [tranzystorek-io](https://github.com/tranzystorek-io)
+
+766d52 - add FAQ to README - [tranzystorek-io](https://github.com/tranzystorek-io)
+
+
+- - -
 ## 0.2.1 - 2021-02-13
 
 
