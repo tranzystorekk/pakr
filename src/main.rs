@@ -7,7 +7,7 @@ use pakr::wrapper::PacmanWrapper;
 
 fn run_app() -> std::io::Result<i32> {
     let cli = Cli::from_args();
-    let pac = PacmanWrapper::from_config();
+    let pac = PacmanWrapper::from_config()?;
 
     let command_status = pac.verify_command()?;
 

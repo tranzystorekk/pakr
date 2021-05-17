@@ -4,7 +4,7 @@ compile_error!("Works only on Unix");
 use crate::config::{Config, Wrapper};
 
 use std::ffi::OsString;
-use std::io::Result as IoResult;
+use std::io::{Error, ErrorKind, Result as IoResult};
 use std::os::unix::ffi::OsStringExt;
 use std::os::unix::process::ExitStatusExt;
 use std::process::Command;
@@ -73,12 +73,15 @@ impl CommandMaker {
 }
 
 impl PacmanWrapper {
-    pub fn from_config() -> Self {
-        let config = Config::from_file().unwrap_or_default();
+    pub fn from_config() -> IoResult<Self> {
+        let config: Config = confy::load(crate::cli::PKG_NAME)
+            .map_err(|_| Error::new(ErrorKind::Other, "Failed to load configuration"))?;
 
-        Self {
+        let result = Self {
             cmd_maker: CommandMaker::from_wrapper_config(config.wrapper),
-        }
+        };
+
+        Ok(result)
     }
 
     pub fn install(&self, packages: &[String], as_deps: bool) -> IoResult<ExitStatus> {

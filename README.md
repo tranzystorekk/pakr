@@ -43,13 +43,15 @@ cargo install pakr --registry tranzystorek-crates-default
 
 ## Configuration
 
-All configuration resides under `$XDG_CONFIG_HOME/pakr.toml` (usually `$HOME/.config/pakr.toml`):
+All configuration resides under `$XDG_CONFIG_HOME/pakr/pakr.toml` (usually `$HOME/.config/pakr/pakr.toml`):
 
 ```toml
 [wrapper]
 command = "pacman"      # name of the wrapper command
 requires_root = true    # whether this wrapper needs root permissions (granted via sudo)
 ```
+
+If this file is missing, a default configuration is created that runs `sudo pacman`.
 
 ## Examples
 

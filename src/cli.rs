@@ -4,7 +4,7 @@ use std::process::ExitStatus;
 use structopt::clap::Shell;
 use structopt::StructOpt;
 
-const PKG_NAME: &str = env!("CARGO_PKG_NAME");
+pub const PKG_NAME: &str = env!("CARGO_PKG_NAME");
 
 pub fn generate_completion(shell: Shell) -> std::io::Result<ExitStatus> {
     Cli::clap().gen_completions_to(PKG_NAME, shell, &mut std::io::stdout());
@@ -76,11 +76,13 @@ pub enum Command {
 /// Manage Arch Linux packages via any pacman-compatible wrapper
 ///
 /// CONFIGURATION:
-/// Config files are read from $XDG_CONFIG_HOME/pakr.toml:
+/// Config files are read from $XDG_CONFIG_HOME/pakr/pakr.toml:
 ///
 /// [wrapper]
 /// command = "pacman"      # name of the wrapper command
 /// requires_root = true    # whether this wrapper needs root permissions (granted via sudo)
+/// 
+/// If this file is missing, a default configuration is created that runs `sudo pacman`.
 pub struct Cli {
     #[structopt(subcommand)]
     pub sub: Command,

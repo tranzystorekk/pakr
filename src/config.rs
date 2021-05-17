@@ -1,33 +1,14 @@
-use std::path::PathBuf;
+use serde::{Serialize, Deserialize};
 
-use lazy_static::lazy_static;
-use serde::Deserialize;
-
-const CONFIG_FILE_NAME: &str = "pakr.toml";
-
-lazy_static! {
-    static ref CONFIG_PATH: Option<PathBuf> =
-        dirs::config_dir().map(|path| path.join(CONFIG_FILE_NAME));
-}
-
-#[derive(Debug, Deserialize)]
+#[derive(Debug, Serialize, Deserialize)]
 pub struct Wrapper {
     pub command: String,
     pub requires_root: bool,
 }
 
-#[derive(Debug, Default, Deserialize)]
+#[derive(Debug, Default, Serialize, Deserialize)]
 pub struct Config {
     pub wrapper: Wrapper,
-}
-
-impl Config {
-    pub fn from_file() -> Option<Self> {
-        let config_path = CONFIG_PATH.as_ref()?;
-        let content = std::fs::read_to_string(config_path).ok()?;
-
-        toml::from_str(&content).ok()
-    }
 }
 
 impl Default for Wrapper {
