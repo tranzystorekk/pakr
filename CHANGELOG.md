@@ -2,6 +2,15 @@
 All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
 
 - - -
+## 0.3.0 - 2021-05-17
+
+
+### Features
+
+8ea5e2 - use confy to load configuration - [tranzystorek-io](https://github.com/tranzystorek-io)
+
+
+- - -
 ## 0.2.2 - 2021-03-27
 
 
