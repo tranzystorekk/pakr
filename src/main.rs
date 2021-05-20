@@ -1,18 +1,34 @@
 use std::os::unix::process::ExitStatusExt;
 
+use log::{debug, error};
 use structopt::StructOpt;
 
 use pakr::cli::{Cli, Command, Orphans};
 use pakr::wrapper::PacmanWrapper;
 
+fn verbosity(verbose: bool) -> usize {
+    match verbose {
+        false => 2,
+        true => 3,
+    }
+}
+
 fn run_app() -> std::io::Result<i32> {
     let cli = Cli::from_args();
     let pac = PacmanWrapper::from_config()?;
 
+    stderrlog::new()
+        .module(module_path!())
+        .verbosity(verbosity(cli.verbose))
+        .init()
+        .unwrap();
+
+    debug!("Verifying that wrapper command exists");
+
     let command_status = pac.verify_command()?;
 
     if !command_status.success() {
-        eprintln!("Failed to verify wrapper command");
+        error!("Failed to verify wrapper command");
 
         return Ok(command_status
             .code()

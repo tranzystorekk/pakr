@@ -11,6 +11,8 @@ use std::process::Command;
 use std::process::ExitStatus;
 
 use bstr::ByteSlice;
+use itertools::Itertools;
+use log::{debug, info};
 
 const SUDO_CMD: &str = "/usr/bin/sudo";
 
@@ -55,6 +57,13 @@ impl CommandMaker {
         }
     }
 
+    pub fn as_string(&self) -> String {
+        match self {
+            CommandMaker::Regular(cmd) => cmd.clone(),
+            CommandMaker::Root(cmd) => format!("{} {}", SUDO_CMD, cmd),
+        }
+    }
+
     pub fn check_command(&self) -> IoResult<ExitStatus> {
         let mut cmd = Command::new("sh");
 
@@ -63,6 +72,8 @@ impl CommandMaker {
         match self {
             Self::Root(command) | Self::Regular(command) => {
                 let verify_command = format!("command -v {}", command);
+
+                debug!("Executing command: `sh -c {}`", verify_command);
 
                 cmd.arg(verify_command);
             }
@@ -86,12 +97,22 @@ impl PacmanWrapper {
 
     pub fn install(&self, packages: &[String], as_deps: bool) -> IoResult<ExitStatus> {
         let mut cmd = self.cmd_maker.construct();
+        let mut deps_flag_format = String::from("");
 
         cmd.arg(INSTALL_FLAG);
 
         if as_deps {
+            deps_flag_format = format!(" {}", AS_DEPS_FLAG);
             cmd.arg(AS_DEPS_FLAG);
         }
+
+        debug!(
+            "Executing command: `{} {}{} {}`",
+            self.cmd_maker.as_string(),
+            INSTALL_FLAG,
+            deps_flag_format,
+            packages.iter().format(" ")
+        );
 
         cmd.args(packages).status()
     }
@@ -99,11 +120,25 @@ impl PacmanWrapper {
     pub fn remove(&self, packages: &[String]) -> IoResult<ExitStatus> {
         let mut cmd = self.cmd_maker.construct();
 
+        debug!(
+            "Executing command: `{} {} {}`",
+            self.cmd_maker.as_string(),
+            REMOVE_FLAG,
+            packages.iter().format(" ")
+        );
+
         cmd.arg(REMOVE_FLAG).args(packages).status()
     }
 
     pub fn info(&self, packages: &[String]) -> IoResult<ExitStatus> {
         let mut cmd = self.cmd_maker.construct();
+
+        debug!(
+            "Executing command `{} {} {}`",
+            self.cmd_maker.as_string(),
+            INFO_FLAG,
+            packages.iter().format(" ")
+        );
 
         cmd.arg(INFO_FLAG).args(packages).status()
     }
@@ -111,11 +146,23 @@ impl PacmanWrapper {
     pub fn upgrade(&self) -> IoResult<ExitStatus> {
         let mut cmd = self.cmd_maker.construct();
 
+        debug!(
+            "Executing command: `{} {}`",
+            self.cmd_maker.as_string(),
+            UPGRADE_FLAG
+        );
+
         cmd.arg(UPGRADE_FLAG).status()
     }
 
     pub fn clean(&self) -> IoResult<ExitStatus> {
         let mut cmd = self.cmd_maker.construct();
+
+        debug!(
+            "Executing command: `{} {}`",
+            self.cmd_maker.as_string(),
+            CLEAN_FLAG
+        );
 
         cmd.arg(CLEAN_FLAG).status()
     }
@@ -123,14 +170,22 @@ impl PacmanWrapper {
     pub fn list_orphans(&self) -> IoResult<ExitStatus> {
         let mut cmd = self.cmd_maker.construct();
 
+        debug!(
+            "Executing command: `{} {}`",
+            self.cmd_maker.as_string(),
+            LIST_ORPHANS_FLAG
+        );
+
         cmd.arg(LIST_ORPHANS_FLAG).status()
     }
 
     pub fn remove_orphans(&self) -> IoResult<ExitStatus> {
         let packages = self.get_orphans()?;
 
+        debug!("Orphans: {:?}", packages);
+
         if packages.is_empty() {
-            eprintln!("No orphans to remove");
+            info!("No orphans to remove");
             return Ok(ExitStatus::from_raw(0));
         }
 
@@ -143,6 +198,12 @@ impl PacmanWrapper {
 
     fn get_orphans(&self) -> IoResult<Vec<OsString>> {
         let mut cmd = self.cmd_maker.construct();
+
+        debug!(
+            "Executing command: `{} {}`",
+            self.cmd_maker.as_string(),
+            LIST_ORPHANS_SILENT_FLAG
+        );
 
         let output = cmd.arg(LIST_ORPHANS_SILENT_FLAG).output()?;
         let packages = output
@@ -157,6 +218,13 @@ impl PacmanWrapper {
 
     fn delete_orphans(&self, packages: &[OsString]) -> IoResult<ExitStatus> {
         let mut cmd = self.cmd_maker.construct();
+
+        debug!(
+            "Executing command: `{} {} {:?}`",
+            self.cmd_maker.as_string(),
+            REMOVE_NO_SAVE_FLAG,
+            packages.iter().format(" ")
+        );
 
         cmd.arg(REMOVE_NO_SAVE_FLAG).args(packages).status()
     }

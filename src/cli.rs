@@ -81,11 +81,15 @@ pub enum Command {
 /// [wrapper]
 /// command = "pacman"      # name of the wrapper command
 /// requires_root = true    # whether this wrapper needs root permissions (granted via sudo)
-/// 
+///
 /// If this file is missing, a default configuration is created that runs `sudo pacman`.
 pub struct Cli {
     #[structopt(subcommand)]
     pub sub: Command,
+
+    #[structopt(short, long, global = true)]
+    /// Display verbose logs (debug etc.)
+    pub verbose: bool,
 }
 
 impl Default for Orphans {

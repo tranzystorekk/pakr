@@ -13,5 +13,8 @@ edition = "2018"
 
 bstr = "0.2.14"
 confy = "0.4.0"
+itertools = "0.10.0"
+log = "0.4.14"
 serde = { version = "1.0.123", features = ["derive"] }
+stderrlog = "0.5.1"
 structopt = "0.3.21"
