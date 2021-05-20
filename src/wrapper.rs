@@ -3,9 +3,9 @@ compile_error!("Works only on Unix");
 
 use crate::config::{Config, Wrapper};
 
+use std::borrow::Cow;
 use std::ffi::OsString;
 use std::io::{Error, ErrorKind, Result as IoResult};
-use std::os::unix::ffi::OsStringExt;
 use std::os::unix::process::ExitStatusExt;
 use std::process::Command;
 use std::process::ExitStatus;
@@ -148,8 +148,8 @@ impl PacmanWrapper {
         let packages = output
             .stdout
             .fields()
-            .map(Vec::from)
-            .map(OsString::from_vec)
+            .map(ByteSlice::to_os_str_lossy)
+            .map(Cow::into_owned)
             .collect();
 
         Ok(packages)
