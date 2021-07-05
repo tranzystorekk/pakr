@@ -7,8 +7,7 @@ use std::borrow::Cow;
 use std::ffi::OsString;
 use std::io::{Error, ErrorKind, Result as IoResult};
 use std::os::unix::process::ExitStatusExt;
-use std::process::Command;
-use std::process::ExitStatus;
+use std::process::{Command, ExitStatus};
 
 use bstr::ByteSlice;
 use itertools::Itertools;
