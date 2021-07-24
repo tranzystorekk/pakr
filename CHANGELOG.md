@@ -2,6 +2,30 @@
 All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
 
 - - -
+## 0.4.0 - 2021-07-24
+
+
+### Features
+
+541f1e - add basic logging - [tranzystorek-io](https://github.com/tranzystorek-io)
+
+
+### Style
+
+fe7e82 - reformat imports - [tranzystorek-io](https://github.com/tranzystorek-io)
+
+
+### Refactoring
+
+dde725 - simplify OsString handling - [tranzystorek-io](https://github.com/tranzystorek-io)
+
+
+### Miscellaneous Chores
+
+237b8f - add release action config - [tranzystorek-io](https://github.com/tranzystorek-io)
+
+
+- - -
 ## 0.3.0 - 2021-05-17
 
 
