@@ -1,5 +1,7 @@
 # Paker
 
+[![Latest version of 'pakr' @ Cloudsmith](https://api-prd.cloudsmith.io/v1/badges/version/tranzystorek-crates/default/cargo/pakr/latest/x/?render=true&show_latest=true)](https://cloudsmith.io/~tranzystorek-crates/repos/default/packages/detail/cargo/pakr/latest/)
+
 ## About
 
 Paker (typed `pakr` for convenience) is a Rust wrapper for any utilities
