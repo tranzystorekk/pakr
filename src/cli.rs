@@ -65,8 +65,8 @@ pub enum Command {
 
     /// Generate a completion script
     Completion {
-        #[structopt(name = "SHELL")]
-        /// Shell type {bash|zsh|fish|powershell|elvish}
+        #[structopt(value_name = "SHELL", possible_values = &["bash", "zsh", "fish", "powershell", "elvish"])]
+        /// Shell type
         shell: Shell,
     },
 }
