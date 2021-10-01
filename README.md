@@ -19,16 +19,16 @@ operations on Arch Linux packages, including:
 
 Currently used flags:
 
-| Subcommand       | Flags                        |
-| ---------------- | ---------------------------- |
-| `install`        | `-S`                         |
-| `install -d`     | `-S --asdeps`                |
-| `remove`         | `-Rs`                        |
-| `info`           | `-Qi`                        |
-| `upgrade`        | `-Syu`                       |
-| `clean`          | `-Sc`                        |
-| `orphans list`   | `-Qtd`                       |
-| `orphans remove` | `-Qtdq` :arrow_right: `-Rns` |
+| Subcommand                    | Flags                        |
+| ----------------------------- | ---------------------------- |
+| `install`                     | `-S`                         |
+| `install -d`                  | `-S --asdeps`                |
+| `remove` (alias `uninstall`)  | `-Rs`                        |
+| `info`                        | `-Qi`                        |
+| `upgrade`                     | `-Syu`                       |
+| `clean`                       | `-Sc`                        |
+| `orphans list`                | `-Qtd`                       |
+| `orphans remove`              | `-Qtdq` :arrow_right: `-Rns` |
 
 ## Installation
 

@@ -35,6 +35,7 @@ pub enum Command {
     },
 
     /// Remove packages
+    #[structopt(visible_alias = "uninstall")]
     Remove {
         #[structopt(name = "PKG", required = true, parse(from_str))]
         /// Packages to be removed
