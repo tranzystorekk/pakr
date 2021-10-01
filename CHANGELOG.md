@@ -2,6 +2,25 @@
 All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
 
 - - -
+## 0.5.0 - 2021-10-01
+
+
+### Features
+
+0e65f2 - add 'uninstall' alias for the remove command - [tranzystorek-io](https://github.com/tranzystorek-io)
+
+
+### Refactoring
+
+17ad8e - tweak possible values for completion subcommand - [tranzystorek-io](https://github.com/tranzystorek-io)
+
+
+### Miscellaneous Chores
+
+491c1f - add cloudsmith badge to README - [tranzystorek-io](https://github.com/tranzystorek-io)
+
+
+- - -
 ## 0.4.0 - 2021-07-24
 
 
