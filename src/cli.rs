@@ -25,27 +25,27 @@ pub enum Orphans {
 pub enum Command {
     /// Install packages
     Install {
-        #[structopt(name = "PKG", required = true, parse(from_str))]
         /// Packages to be installed
+        #[structopt(name = "PKG", required = true, parse(from_str))]
         packages: Vec<String>,
 
-        #[structopt(long, short = "d")]
         /// Mark installed packages as dependencies
+        #[structopt(long, short = "d")]
         as_deps: bool,
     },
 
     /// Remove packages
     #[structopt(visible_alias = "uninstall")]
     Remove {
-        #[structopt(name = "PKG", required = true, parse(from_str))]
         /// Packages to be removed
+        #[structopt(name = "PKG", required = true, parse(from_str))]
         packages: Vec<String>,
     },
 
     /// Display package info
     Info {
-        #[structopt(name = "PKG", required = true, parse(from_str))]
         /// Packages to be inspected
+        #[structopt(name = "PKG", required = true, parse(from_str))]
         packages: Vec<String>,
     },
 
@@ -66,14 +66,12 @@ pub enum Command {
 
     /// Generate a completion script
     Completion {
-        #[structopt(value_name = "SHELL", possible_values = &["bash", "zsh", "fish", "powershell", "elvish"])]
         /// Shell type
+        #[structopt(value_name = "SHELL", possible_values = &["bash", "zsh", "fish", "powershell", "elvish"])]
         shell: Shell,
     },
 }
 
-#[derive(Debug, StructOpt)]
-#[structopt(verbatim_doc_comment)]
 /// Manage Arch Linux packages via any pacman-compatible wrapper
 ///
 /// CONFIGURATION:
@@ -84,12 +82,14 @@ pub enum Command {
 /// requires_root = true    # whether this wrapper needs root permissions (granted via sudo)
 ///
 /// If this file is missing, a default configuration is created that runs `sudo pacman`.
+#[derive(Debug, StructOpt)]
+#[structopt(verbatim_doc_comment)]
 pub struct Cli {
     #[structopt(subcommand)]
     pub sub: Command,
 
-    #[structopt(short, long, global = true)]
     /// Display verbose logs (debug etc.)
+    #[structopt(short, long, global = true)]
     pub verbose: bool,
 }
 
