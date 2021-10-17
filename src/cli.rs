@@ -26,7 +26,7 @@ pub enum Command {
     /// Install packages
     Install {
         /// Packages to be installed
-        #[structopt(name = "PKG", required = true, parse(from_str))]
+        #[structopt(value_name = "PKG", required = true, parse(from_str))]
         packages: Vec<String>,
 
         /// Mark installed packages as dependencies
@@ -38,14 +38,14 @@ pub enum Command {
     #[structopt(visible_alias = "uninstall")]
     Remove {
         /// Packages to be removed
-        #[structopt(name = "PKG", required = true, parse(from_str))]
+        #[structopt(value_name = "PKG", required = true, parse(from_str))]
         packages: Vec<String>,
     },
 
     /// Display package info
     Info {
         /// Packages to be inspected
-        #[structopt(name = "PKG", required = true, parse(from_str))]
+        #[structopt(value_name = "PKG", required = true, parse(from_str))]
         packages: Vec<String>,
     },
 
