@@ -21,6 +21,12 @@ pub enum Orphans {
     Remove,
 }
 
+impl Default for Orphans {
+    fn default() -> Self {
+        Self::Remove
+    }
+}
+
 #[derive(Debug, StructOpt)]
 pub enum Command {
     /// Install packages
@@ -91,10 +97,4 @@ pub struct Cli {
     /// Display verbose logs (debug etc.)
     #[structopt(short, long, global = true)]
     pub verbose: bool,
-}
-
-impl Default for Orphans {
-    fn default() -> Self {
-        Self::Remove
-    }
 }
