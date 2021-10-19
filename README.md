@@ -1,6 +1,6 @@
 # Paker
 
-[![Latest version of 'pakr' @ Cloudsmith](https://api-prd.cloudsmith.io/v1/badges/version/tranzystorek-crates/default/cargo/pakr/latest/x/?render=true&show_latest=true)](https://cloudsmith.io/~tranzystorek-crates/repos/default/packages/detail/cargo/pakr/latest/)
+[![Latest version of 'pakr' @ Cloudsmith](https://api-prd.cloudsmith.io/v1/badges/version/tranzystorek-crates/pakr/cargo/pakr/latest/x/?render=true&show_latest=true)](https://cloudsmith.io/~tranzystorek-crates/repos/pakr/packages/detail/cargo/pakr/latest/)
 [![GitHub release (latest by date)](https://img.shields.io/github/v/release/tranzystorek-io/pakr)](https://github.com/tranzystorek-io/pakr/releases/latest)
 
 [![Hosted By: Cloudsmith](https://img.shields.io/badge/OSS%20hosting%20by-cloudsmith-blue?logo=cloudsmith&style=for-the-badge)](https://cloudsmith.com)
@@ -43,12 +43,12 @@ Currently used flags:
 ### Via Cargo
 
 Paker is hosted on a custom Cloudsmith repository, so first set up a
-[Cargo registry](https://cloudsmith.io/~tranzystorek-crates/repos/default/setup/#formats-cargo).
+[Cargo registry](https://cloudsmith.io/~tranzystorek-crates/repos/pakr/setup/#formats-cargo).
 
 Then, install `pakr` using the selected registry name:
 
 ```sh
-cargo install pakr --registry tranzystorek-crates-default
+cargo install pakr --registry tranzystorek-crates-pakr
 ```
 
 ## Configuration
