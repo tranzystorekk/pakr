@@ -2,6 +2,24 @@
 All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
 
 - - -
+## 0.5.1 - 2021-10-19
+
+
+### Miscellaneous Chores
+
+4d1727 - ignore patch versions and update dependencies - [tranzystorek-io](https://github.com/tranzystorek-io)
+
+
+### Style
+
+12fa97 - move default impl closer to Orphans - [tranzystorek-io](https://github.com/tranzystorek-io)
+
+5398cc - change name attr to value_name - [tranzystorek-io](https://github.com/tranzystorek-io)
+
+be8961 - rearrange doc comments - [tranzystorek-io](https://github.com/tranzystorek-io)
+
+
+- - -
 ## 0.5.0 - 2021-10-01
 
 
