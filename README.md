@@ -1,6 +1,7 @@
 # Paker
 
 [![Latest version of 'pakr' @ Cloudsmith](https://api-prd.cloudsmith.io/v1/badges/version/tranzystorek-crates/default/cargo/pakr/latest/x/?render=true&show_latest=true)](https://cloudsmith.io/~tranzystorek-crates/repos/default/packages/detail/cargo/pakr/latest/)
+[![GitHub release (latest by date)](https://img.shields.io/github/v/release/tranzystorek-io/pakr)](https://github.com/tranzystorek-io/pakr/releases/latest)
 
 ## About
 
