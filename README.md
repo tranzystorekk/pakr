@@ -3,6 +3,13 @@
 [![Latest version of 'pakr' @ Cloudsmith](https://api-prd.cloudsmith.io/v1/badges/version/tranzystorek-crates/default/cargo/pakr/latest/x/?render=true&show_latest=true)](https://cloudsmith.io/~tranzystorek-crates/repos/default/packages/detail/cargo/pakr/latest/)
 [![GitHub release (latest by date)](https://img.shields.io/github/v/release/tranzystorek-io/pakr)](https://github.com/tranzystorek-io/pakr/releases/latest)
 
+[![Hosted By: Cloudsmith](https://img.shields.io/badge/OSS%20hosting%20by-cloudsmith-blue?logo=cloudsmith&style=for-the-badge)](https://cloudsmith.com)
+
+Package repository hosting is graciously provided by  [Cloudsmith](https://cloudsmith.com).
+Cloudsmith is the only fully hosted, cloud-native, universal package management solution, that
+enables your organization to create, store and share packages in any format, to any place, with total
+confidence.
+
 ## About
 
 Paker (typed `pakr` for convenience) is a Rust wrapper for any utilities
