@@ -112,5 +112,5 @@ I still use the underlying package manager to do specific tasks
 like listing manually installed packages or installing packages from manual sources.
 
 Some common things that pacman doesn't do are included
-in the [pacman-contrib](https://git.archlinux.org/pacman-contrib.git/about/) package,
+in the [pacman-contrib](https://gitlab.archlinux.org/pacman/pacman-contrib) package,
 you might want to check it out.
