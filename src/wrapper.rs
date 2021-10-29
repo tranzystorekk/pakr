@@ -116,7 +116,7 @@ impl PacmanWrapper {
         cmd.args(packages).status()
     }
 
-    pub fn remove(&self, packages: &[String]) -> IoResult<ExitStatus> {
+    pub fn uninstall(&self, packages: &[String]) -> IoResult<ExitStatus> {
         let mut cmd = self.cmd_maker.construct();
 
         debug!(

@@ -41,8 +41,7 @@ pub enum Command {
     },
 
     /// Remove packages
-    #[structopt(visible_alias = "uninstall")]
-    Remove {
+    Uninstall {
         /// Packages to be removed
         #[structopt(value_name = "PKG", required = true, parse(from_str))]
         packages: Vec<String>,

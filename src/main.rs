@@ -37,7 +37,7 @@ fn run_app() -> std::io::Result<i32> {
 
     let status = match cli.sub {
         Command::Install { packages, as_deps } => pac.install(&packages, as_deps),
-        Command::Remove { packages } => pac.remove(&packages),
+        Command::Uninstall { packages } => pac.uninstall(&packages),
         Command::Info { packages } => pac.info(&packages),
         Command::Upgrade => pac.upgrade(),
         Command::Clean => pac.clean(),
