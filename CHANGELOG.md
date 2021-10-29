@@ -2,6 +2,26 @@
 All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
 
 - - -
+## 0.6.0 - 2021-10-29
+
+
+### Features
+
+b580fe - rename 'remove' subcommand to 'uninstall' - [tranzystorek-io](https://github.com/tranzystorek-io)
+
+
+### Miscellaneous Chores
+
+257a2b - update pacman-contrib link in README - [tranzystorek-io](https://github.com/tranzystorek-io)
+
+69736d - update cloudsmith repo links - [tranzystorek-io](https://github.com/tranzystorek-io)
+
+006ec7 - add attribution for Cloudsmith hosting - [tranzystorek-io](https://github.com/tranzystorek-io)
+
+ce324c - add README badge for latest Github release - [tranzystorek-io](https://github.com/tranzystorek-io)
+
+
+- - -
 ## 0.5.1 - 2021-10-19
 
 
