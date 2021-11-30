@@ -1,4 +1,3 @@
-changelog_path = "CHANGELOG.md"
 pre_bump_hooks = [
     "cargo build --release",
     "cargo bump {{version}}",
@@ -9,8 +8,13 @@ post_bump_hooks = [
     "git push",
     "git push origin {{version}}",
 ]
+
+[commit_types]
+
+[changelog]
+path = "CHANGELOG.md"
 authors = [
     { signature = "Marcin Puc", username = "tranzystorek-io" },
 ]
 
-[commit_types]
+[bump_profiles]
