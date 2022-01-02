@@ -13,8 +13,9 @@ edition = "2018"
 
 bstr = "0.2"
 confy = "0.4"
+clap = { version = "3.0", features = ["derive"] }
+clap_complete = "3.0"
 itertools = "0.10"
 log = "0.4"
 serde = { version = "1.0", features = ["derive"] }
 stderrlog = "0.5"
-structopt = "0.3"

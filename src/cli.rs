@@ -1,18 +1,23 @@
 use std::os::unix::process::ExitStatusExt;
 use std::process::ExitStatus;
 
-use structopt::clap::Shell;
-use structopt::StructOpt;
+use clap::{IntoApp, Parser, Subcommand};
+use clap_complete::Shell;
 
 pub const PKG_NAME: &str = env!("CARGO_PKG_NAME");
 
 pub fn generate_completion(shell: Shell) -> std::io::Result<ExitStatus> {
-    Cli::clap().gen_completions_to(PKG_NAME, shell, &mut std::io::stdout());
+    clap_complete::generate(
+        shell,
+        &mut Cli::into_app(),
+        PKG_NAME,
+        &mut std::io::stdout(),
+    );
 
     Ok(ExitStatus::from_raw(0))
 }
 
-#[derive(Copy, Clone, Debug, StructOpt)]
+#[derive(Copy, Clone, Debug, Subcommand)]
 pub enum Orphans {
     /// List orphans
     List,
@@ -27,30 +32,30 @@ impl Default for Orphans {
     }
 }
 
-#[derive(Debug, StructOpt)]
+#[derive(Debug, Subcommand)]
 pub enum Command {
     /// Install packages
     Install {
         /// Packages to be installed
-        #[structopt(value_name = "PKG", required = true, parse(from_str))]
+        #[clap(value_name = "PKG", required = true)]
         packages: Vec<String>,
 
         /// Mark installed packages as dependencies
-        #[structopt(long, short = "d")]
+        #[clap(long, short = 'd')]
         as_deps: bool,
     },
 
     /// Remove packages
     Uninstall {
         /// Packages to be removed
-        #[structopt(value_name = "PKG", required = true, parse(from_str))]
+        #[clap(value_name = "PKG", required = true)]
         packages: Vec<String>,
     },
 
     /// Display package info
     Info {
         /// Packages to be inspected
-        #[structopt(value_name = "PKG", required = true, parse(from_str))]
+        #[clap(value_name = "PKG", required = true)]
         packages: Vec<String>,
     },
 
@@ -65,14 +70,14 @@ pub enum Command {
 
     /// Manage orphaned packages
     Orphans {
-        #[structopt(subcommand)]
+        #[clap(subcommand)]
         cmd: Option<Orphans>,
     },
 
     /// Generate a completion script
     Completion {
         /// Shell type
-        #[structopt(value_name = "SHELL", possible_values = &["bash", "zsh", "fish", "powershell", "elvish"])]
+        #[clap(value_name = "SHELL", arg_enum)]
         shell: Shell,
     },
 }
@@ -87,13 +92,13 @@ pub enum Command {
 /// requires_root = true    # whether this wrapper needs root permissions (granted via sudo)
 ///
 /// If this file is missing, a default configuration is created that runs `sudo pacman`.
-#[derive(Debug, StructOpt)]
-#[structopt(verbatim_doc_comment)]
+#[derive(Debug, Parser)]
+#[clap(verbatim_doc_comment, version)]
 pub struct Cli {
-    #[structopt(subcommand)]
+    #[clap(subcommand)]
     pub sub: Command,
 
     /// Display verbose logs (debug etc.)
-    #[structopt(short, long, global = true)]
+    #[clap(short, long, global = true)]
     pub verbose: bool,
 }

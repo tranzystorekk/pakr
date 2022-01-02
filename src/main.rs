@@ -1,7 +1,7 @@
 use std::os::unix::process::ExitStatusExt;
 
+use clap::Parser;
 use log::{debug, error};
-use structopt::StructOpt;
 
 use pakr::cli::{Cli, Command, Orphans};
 use pakr::wrapper::PacmanWrapper;
@@ -14,7 +14,7 @@ fn verbosity(verbose: bool) -> usize {
 }
 
 fn run_app() -> std::io::Result<i32> {
-    let cli = Cli::from_args();
+    let cli = Cli::parse();
     let pac = PacmanWrapper::from_config()?;
 
     stderrlog::new()
