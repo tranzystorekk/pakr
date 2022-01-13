@@ -59,7 +59,7 @@ impl CommandMaker {
     pub fn as_string(&self) -> String {
         match self {
             CommandMaker::Regular(cmd) => cmd.clone(),
-            CommandMaker::Root(cmd) => format!("{} {}", SUDO_CMD, cmd),
+            CommandMaker::Root(cmd) => format!("{SUDO_CMD} {cmd}"),
         }
     }
 
@@ -70,9 +70,9 @@ impl CommandMaker {
 
         match self {
             Self::Root(command) | Self::Regular(command) => {
-                let verify_command = format!("command -v {}", command);
+                let verify_command = format!("command -v {command}");
 
-                debug!("Executing command: `sh -c {}`", verify_command);
+                debug!("Executing command: `sh -c {verify_command}");
 
                 cmd.arg(verify_command);
             }
@@ -101,7 +101,7 @@ impl PacmanWrapper {
         cmd.arg(INSTALL_FLAG);
 
         if as_deps {
-            deps_flag_format = format!(" {}", AS_DEPS_FLAG);
+            deps_flag_format = format!(" {AS_DEPS_FLAG}");
             cmd.arg(AS_DEPS_FLAG);
         }
 
@@ -181,7 +181,7 @@ impl PacmanWrapper {
     pub fn remove_orphans(&self) -> IoResult<ExitStatus> {
         let packages = self.get_orphans()?;
 
-        debug!("Orphans: {:?}", packages);
+        debug!("Orphans: {packages:?}");
 
         if packages.is_empty() {
             info!("No orphans to remove");
