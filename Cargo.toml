@@ -1,6 +1,6 @@
 [package]
 name = "pakr"
-version = "0.6.0"
+version = "0.7.0"
 authors = ["Marcin Puc <marcin.e.puc@gmail.com>"]
 description = "Manage Arch Linux packages via any pacman-compatible wrapper"
 license = "MIT"

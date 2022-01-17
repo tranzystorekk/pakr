@@ -2,6 +2,16 @@
 All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
 
 - - -
+#### Features
+- 69fc6d4fdcf5d1191c10c8ba743d0a02151a088d - add the 'up' alias for upgrade - @tranzystorek-io
+#### Miscellaneous Chores
+- f2b98b872e2b879a0a366b809ea994c4f83f66f2 - switch cocogitto changelog template to full_hash - @tranzystorek-io
+- 106b52893953beeef886416a23e271dd21e951c6 - adjust cocogitto config for v4 - @tranzystorek-io
+#### Refactoring
+- 37894211d7fbe317940a23441241eef3325612e3 - use Rust 1.58 format strings - @tranzystorek-io
+- 6170233eb05097818c6663f208efe1caf1d922d2 - switch parsing to clap v3 - @tranzystorek-io
+- - -
+
 ## 0.6.0 - 2021-10-29
 
 
