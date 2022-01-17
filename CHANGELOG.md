@@ -2,6 +2,9 @@
 All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
 
 - - -
+## 0.7.0 - 2022-01-17
+
+
 #### Features
 - 69fc6d4fdcf5d1191c10c8ba743d0a02151a088d - add the 'up' alias for upgrade - @tranzystorek-io
 #### Miscellaneous Chores
