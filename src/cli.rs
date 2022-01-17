@@ -60,6 +60,7 @@ pub enum Command {
     },
 
     /// Upgrade all installed packages
+    #[clap(visible_alias = "up")]
     Upgrade,
 
     /// Clean package cache
