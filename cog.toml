@@ -13,7 +13,6 @@ post_bump_hooks = [
 
 [changelog]
 path = "CHANGELOG.md"
-template = "full_hash"
 authors = [
     { signature = "Marcin Puc", username = "tranzystorek-io" },
 ]

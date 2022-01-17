@@ -25,7 +25,7 @@ jobs:
           version: 4.0.1
 
       - name: Generate changelog
-        run: cog changelog --at ${{ steps.get_version.outputs.VERSION }} > ${{ github.workflow }}_changelog.md
+        run: cog changelog --template full_hash --at ${{ steps.get_version.outputs.VERSION }} > ${{ github.workflow }}_changelog.md
 
       - name: Release
         uses: softprops/action-gh-release@v1
