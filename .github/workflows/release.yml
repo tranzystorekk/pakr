@@ -22,7 +22,7 @@ jobs:
         uses: actions-rs/install@v0.1
         with:
           crate: cocogitto
-          version: latest
+          version: 4.0.1
 
       - name: Generate changelog
         run: cog changelog --at ${{ steps.get_version.outputs.VERSION }} > ${{ github.workflow }}_changelog.md
