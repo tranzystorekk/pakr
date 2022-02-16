@@ -9,7 +9,7 @@ pub const PKG_NAME: &str = env!("CARGO_PKG_NAME");
 pub fn generate_completion(shell: Shell) -> std::io::Result<ExitStatus> {
     clap_complete::generate(
         shell,
-        &mut Cli::into_app(),
+        &mut Cli::command(),
         PKG_NAME,
         &mut std::io::stdout(),
     );
