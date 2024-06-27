@@ -42,13 +42,10 @@ Currently used flags:
 
 ### Via Cargo
 
-Paker is hosted on a custom Cloudsmith repository, so first set up a
-[Cargo registry](https://cloudsmith.io/~tranzystorek-crates/repos/pakr/setup/#formats-cargo).
-
-Then, install `pakr` using the selected registry name:
+Clone this repository and run this command inside:
 
 ```sh
-cargo install pakr --registry tranzystorek-crates-pakr
+cargo install --path .
 ```
 
 ## Configuration
